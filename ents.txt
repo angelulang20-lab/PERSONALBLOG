@@ -1,0 +1,26 @@
+VERY VERY VERY SIMPLE SOCMED ENTITIES
+
+
+Users
+    <Default django user model>
+
+Post
+    - media/s     <If your post will support multi media types i.e. vide, image, gif, etc...., else, simple use img>
+    - description   |   char
+    - timestamps <created_at, updated_at, is_deleted (not really in timestamps...)>
+    
+    - owner         |   FK>User
+    - Category      |   FK>Category
+
+Category        <other species calls this "Tags">
+    - name  |   char
+    - description <maybe.... if so then charField>
+
+
+Comment
+    <Apply self relat7ionsships and porbably polymorphic>
+    - descriptioin  |   char
+    - timestamps <created_at, updated_at, is_deleted (not really in timestamps...)>
+
+    - owner         |   FK>User
+    - reference_id  |   <value can either be post_id or comment_id (comment_id if the comment is a reply to a comment), this is called polymorphic relationship or djangoGenericForeignKey>
