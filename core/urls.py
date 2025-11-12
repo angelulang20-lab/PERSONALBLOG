@@ -33,23 +33,14 @@ urlpatterns = [
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
-    path('api/postcreate/', PostListCreateView.as_view(), name='PostListCreateView'),
+    
 
-    path('api/users/', PostListView.as_view(), name='user-posts'),      # List all users
-                                                                        # Retrieve user by id
-
-
-    # """
-    # URL
-    # http://127.0.0.1:8000 < Local host
-    # http://localhost:8000 < Local host
-
-    # End Points
-    # - What comes after the localhost
-
-    # Parts of the URL - self study
-
-    # http://127.0.0.1:8000/api/users/  --> List of all users posts
-    # """
+    path('api/blogs/', BlogListView.as_view(), name='user-blogs'),
+    path('api/blogs/create/', BlogListCreateView.as_view(), name='create-blogs'),
+    path('api/blogs/<int:pk>/', BlogDetailView.as_view(), name='crud-blogs'),
+    
+    path('api/entries/', JournalListView.as_view(), name='user-entries'),
+    path('api/entries/create/', JournalListCreateView.as_view(), name='create-entries'),
+    path('api/entries/<int:pk>/', JournalDetailView.as_view(), name='crud-entries'),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
