@@ -15,7 +15,6 @@ class BlogListView(ListAPIView):
     
     def get_queryset(self):
         return Post.objects.filter(
-            author=self.request.user,
             post_type='PersonalBlog'
         ).order_by('-created_at')
 
